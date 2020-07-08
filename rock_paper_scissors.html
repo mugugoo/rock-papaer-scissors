@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+
+
+
+function computerPlay() {
+  let hand=Math.random()*3;
+  if (hand>=2) return "Rock";
+  else if (hand>=1) return "Paper";
+  else return "Scissors";
+} 
+//rock > paper > scissors
+function round(player,ai) {
+let transfo =function(n){
+    if (n.toLowerCase()=='rock') return 3;
+    else if (n.toLowerCase()=='paper') return 2;
+    else if (n.toLowerCase()=='scissors') return 1;
+    else return -1;
+}
+player=transfo(player); ai=transfo(ai);
+if (player===-1) return 'please play the game seriously';
+if ((player===3 && ai==1)||(player<ai)) return "The player wins";
+else if (player===ai) return 'No winner this round';
+else return 'Skynet ever lives';
+}
+
+function game(){
+let score=0; let turn=0;
+while (turn!=5 && score!=3) {
+   let hand=prompt("So, what will you play?") ;
+
+let response=round(hand,computerPlay());
+console.log(response);
+turn++;
+console.log("turn " + turn);
+
+}
+}
+console.log(computerPlay());
+console.log(round(prompt("So, what will you play?") , computerPlay()));
+game();
+
+
+</script>
+</body>
+</html>
+
